@@ -6,16 +6,22 @@ function SumComponent() {
   const [sum, setSum] = useState(0);
 
   const calculateSum = () => {
-    // Deliberate type error: num1 and num2 should be numbers, but we treat them as strings
     setSum(num1 + num2);
   };
- 
 
   return (
     <div>
-      <br></br>
-      <input type="number" value={num1} onChange={(e) => setNum1(e.target.value)} />
-      <input type="number" value={num2} onChange={(e) => setNum2(e.target.value)} />
+      <br />
+      <input
+        type="number"
+        value={num1}
+        onChange={(e) => setNum1(Number(e.target.value))}
+      />
+      <input
+        type="number"
+        value={num2}
+        onChange={(e) => setNum2(Number(e.target.value))}
+      />
       <button onClick={calculateSum}>Calculate Sum</button>
       <p>Sum: {sum}</p>
     </div>
